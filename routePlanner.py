@@ -5,13 +5,17 @@ import bezier
 import numpy as np
 # import time
 airports = {
-    "KKBI": {
-        "airportName": "Kitesboro",
+    "AP1": {
+        "airportName": "AIRPORT-1",
         "airportLocation": [10, 10]
     },
-    "KKBC": {
-        "airportName": "Kitesboroc",
+    "AP2": {
+        "airportName": "AIRPORT-2",
         "airportLocation": [20, 20]
+    },
+    "AP3": {
+        "airportName": "AIRPORT-2",
+        "airportLocation": [15, 15]
     }
 }
 
@@ -91,7 +95,7 @@ def plot_route(route, database):
     straight_path_y = departure_runway["runwayEndPoint"][1] + 1 * math.cos(radian_angle)
     straight_path_point = [straight_path_x, straight_path_y]
 
-    control_distance = 5  #Curve control
+    control_distance = 1 #Curve control
     control_point_1_x = straight_path_point[0] + control_distance * math.sin(radian_angle)
     control_point_1_y = straight_path_point[1] + control_distance * math.cos(radian_angle)
     control_point_1 = [control_point_1_x, control_point_1_y]
@@ -111,7 +115,7 @@ def plot_route(route, database):
         control_point_1[1] + 0.67 * (control_point_2[1] - control_point_1[1])
     ]
 
-    alignment_distance = 2 #Curve control
+    alignment_distance = 1 #Curve control
     align_point_x = arrival_runway["runwayStartPoint"][0] - alignment_distance * math.sin(radian_angle_arrival)
     align_point_y = arrival_runway["runwayStartPoint"][1] - alignment_distance * math.cos(radian_angle_arrival)
     align_point = [align_point_x, align_point_y]
@@ -157,12 +161,96 @@ def plot_route(route, database):
     plt.show()
 
 
+def plot_route_multiple(route_array, database):
+    for route in route_array:
+        departure_point = route["Line-up Point Departure"]
+        arrival_point = route["Line-up Point Arrival"]
+        departure_airport = database[route["Departure"]]
+        arrival_airport = database[route["Arrival"]]
+
+        departure_runway = departure_airport["runways"][0]
+        arrival_runway = arrival_airport["runways"][0]
+
+        radian_angle = math.radians(departure_runway["runwayApproach"])
+        straight_path_x = departure_runway["runwayEndPoint"][0] + 1 * math.sin(radian_angle)
+        straight_path_y = departure_runway["runwayEndPoint"][1] + 1 * math.cos(radian_angle)
+        straight_path_point = [straight_path_x, straight_path_y]
+
+        control_distance = 3  # Curve control
+        control_point_1_x = straight_path_point[0] + control_distance * math.sin(radian_angle)
+        control_point_1_y = straight_path_point[1] + control_distance * math.cos(radian_angle)
+        control_point_1 = [control_point_1_x, control_point_1_y]
+
+        radian_angle_arrival = math.radians(arrival_runway["runwayApproach"])
+        control_point_2_x = arrival_runway["runwayStartPoint"][0] - control_distance * math.sin(radian_angle_arrival)
+        control_point_2_y = arrival_runway["runwayStartPoint"][1] - control_distance * math.cos(radian_angle_arrival)
+        control_point_2 = [control_point_2_x, control_point_2_y]
+
+        control_point_3 = [
+            control_point_1[0] + 0.33 * (control_point_2[0] - control_point_1[0]),
+            control_point_1[1] + 0.33 * (control_point_2[1] - control_point_1[1])
+        ]
+
+        control_point_4 = [
+            control_point_1[0] + 0.67 * (control_point_2[0] - control_point_1[0]),
+            control_point_1[1] + 0.67 * (control_point_2[1] - control_point_1[1])
+        ]
+
+        alignment_distance = 1  # Curve control
+        align_point_x = arrival_runway["runwayStartPoint"][0] - alignment_distance * math.sin(radian_angle_arrival)
+        align_point_y = arrival_runway["runwayStartPoint"][1] - alignment_distance * math.cos(radian_angle_arrival)
+        align_point = [align_point_x, align_point_y]
+
+        nodes = np.asfortranarray(
+            [
+                [straight_path_point[0], control_point_1[0], control_point_3[0], control_point_4[0], control_point_2[0],
+                 align_point[0]],
+                [straight_path_point[1], control_point_1[1], control_point_3[1], control_point_4[1], control_point_2[1],
+                 align_point[1]]
+            ]
+        )
+
+        curve = bezier.Curve(nodes, degree=5)
+        curve_vals = curve.evaluate_multi(np.linspace(0.0, 1.0, 200))
+
+        for code, data in database.items():
+            # plt.scatter(*data["airportLocation"], marker='o', label=f"{code} - {data['airportName']}")
+            for runway in data["runways"]:
+                plt.plot([runway["runwayStartPoint"][0], runway["runwayEndPoint"][0]],
+                         [runway["runwayStartPoint"][1], runway["runwayEndPoint"][1]], 'k-')
+
+        plt.plot(
+            [departure_runway["runwayStartPoint"][0], departure_runway["runwayEndPoint"][0], straight_path_point[0],
+             *curve_vals[0, :], arrival_runway["runwayStartPoint"][0]],
+            [departure_runway["runwayStartPoint"][1], departure_runway["runwayEndPoint"][1], straight_path_point[1],
+             *curve_vals[1, :], arrival_runway["runwayStartPoint"][1]], 'r-')
+
+        plt.annotate("Start", departure_runway["runwayStartPoint"], xytext=(-20, 5), textcoords='offset points')
+        plt.annotate("End", departure_runway["runwayEndPoint"], xytext=(-10, 5), textcoords='offset points')
+        plt.annotate("+1 Mile", straight_path_point, xytext=(5, 5), textcoords='offset points')
+        # plt.annotate("CP1", control_point_1, xytext=(10, -15), textcoords='offset points')
+        # plt.annotate("CP2", control_point_2, xytext=(-25, 10), textcoords='offset points')
+        # plt.annotate("CP3", control_point_3, xytext=(10, 10), textcoords='offset points')
+        # plt.annotate("CP4", control_point_4, xytext=(10, -10), textcoords='offset points')
+        plt.annotate("Align", align_point, xytext=(-30, 10), textcoords='offset points')
+        plt.annotate("End", arrival_runway["runwayEndPoint"], xytext=(-20, -10), textcoords='offset points')
+
+        plt.xlabel('Latitude')
+        plt.ylabel('Longitude')
+        plt.title('Flight Route Planner')
+        plt.legend()
+    plt.grid(True)
+    plt.show()
+
 while True:
 
     for airport_code, airport_data in airports.items():
         airports[airport_code]["runways"] = [generate_runway(airport_data["airportLocation"]) for _ in range(1)]
 
-    route = get_route("KKBI", "KKBC", airports)
-    plot_route(route, airports)
+    route1 = get_route("AP1", "AP2", airports)
+    # route2 = get_route("AP3", "AP2", airports)
+
+    plot_route_multiple([route1], airports)
+
 
     # time.sleep(5)

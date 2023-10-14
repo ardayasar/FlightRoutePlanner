@@ -1,0 +1,155 @@
+{
+    "KOIA": {
+        "airportName": "Oconee Island Airport",
+        "towerPosition": [-227.51199340820312, 0.7145326137542725, -116.31916046142578],
+        "runways": [
+            {
+                "runwayMark": "RW05",
+                "runwayStartPoint": [-278.2059020996094, 0.7152814269065857, -95.05694580078125],
+                "runwayEndPoint": [-171.99884033203125, 0.7170419096946716, -201.38414001464844],
+                "runwaySurface": "normal",
+                "runwayApproach": 45,
+                "runwayApproachStartDistance": 12
+            },
+            {
+                "runwayMark": "RW23",
+                "runwayStartPoint": [-171.99884033203125, 0.7170419096946716, -201.38414001464844],
+                "runwayEndPoint": [-278.2059020996094, 0.7152814269065857, -95.05694580078125],
+                "runwaySurface": "normal",
+                "runwayApproach": 226,
+                "runwayApproachStartDistance": 12
+            }
+        ]
+    },
+
+    "KKBI": {
+        "airportName": "Kitesboro International Airport",
+        "towerPosition": [-6118.3466796875, 0.5698623657226562, -1930.24560546875],
+        "runways": [
+            {
+                "runwayMark": "RW12",
+                "runwayStartPoint": [-5919.62158203125, 0.5646200180053711, -1890.109619140625],
+                "runwayEndPoint": [-6258.90869140625, 0.5688742399215698, -2042.405517578125],
+                "runwaySurface": "normal",
+                "runwayApproach": 295,
+                "runwayApproachStartDistance": 12
+            },
+            {
+                "runwayMark": "RW29",
+                "runwayStartPoint": [-6258.90869140625, 0.5688742399215698, -2042.405517578125],
+                "runwayEndPoint": [-5919.62158203125, 0.5646200180053711, -1890.109619140625],
+                "runwaySurface": "normal",
+                "runwayApproach": 114,
+                "runwayApproachStartDistance": 12
+            }
+        ]
+    },
+
+    "KAA": {
+        "airportName": "Ardmore Aerodrome",
+        "towerPosition": [-5701.9833984375, 0.6161165237426758, -1097.3597412109375],
+        "runways": [
+            {
+                "runwayMark": "RW35",
+                "runwayStartPoint": [-5662.43310546875, 0.5691176652908325, -1055.6600341796875],
+                "runwayEndPoint": [-5684.92333984375, 0.5663421154022217, -1163.8128662109375],
+                "runwaySurface": "normal",
+                "runwayApproach": 349,
+                "runwayApproachStartDistance": 4
+            },
+            {
+                "runwayMark": "RW17",
+                "runwayStartPoint": [-5684.92333984375, 0.5663421154022217, -1163.8128662109375],
+                "runwayEndPoint": [-5662.43310546875, 0.5691176652908325, -1055.6600341796875],
+                "runwaySurface": "normal",
+                "runwayApproach": 169,
+                "runwayApproachStartDistance": 4
+            }
+        ]
+    },
+
+    "MUWI": {
+        "airportName": "Webley Island",
+        "towerPosition": [-2572.948974609375, 6.041712284088135, -1823.236083984375],
+        "runways": [
+            {
+                "runwayMark": "RW30",
+                "runwayStartPoint": [-2545.3076171875, 6.049331188201904, -1805.127685546875],
+                "runwayEndPoint": [-2617.941650390625, 6.040017127990723, -1841.3919677734375],
+                "runwaySurface": "dirt",
+                "runwayApproach": 297,
+                "runwayApproachStartDistance": 3
+            },
+            {
+                "runwayMark": "RW12",
+                "runwayStartPoint": [-2617.941650390625, 6.040017127990723, -1841.3919677734375],
+                "runwayEndPoint": [-2545.3076171875, 6.049331188201904, -1805.127685546875],
+                "runwaySurface": "dirt",
+                "runwayApproach": 117,
+                "runwayApproachStartDistance": 3
+            }
+        ]
+    },
+
+    "KHF": {
+        "airportName": "Hampden Field",
+        "towerPosition": [408.8526306152344, 0.7058684825897217, 554.2201538085938],
+        "runways": [
+            {
+                "runwayMark": "RW29",
+                "runwayStartPoint": [411.6783752441406, 0.7056783437728882, 572.648193359375],
+                "runwayEndPoint": [333.6573791503906, 0.7061790823936462, 545.7827758789062],
+                "runwaySurface": "stone",
+                "runwayApproach": 290,
+                "runwayApproachStartDistance": 3
+            },
+            {
+                "runwayMark": "RW11",
+                "runwayStartPoint": [333.6573791503906, 0.7061790823936462, 545.7827758789062],
+                "runwayEndPoint": [411.6783752441406, 0.7056783437728882, 572.648193359375],
+                "runwaySurface": "stone",
+                "runwayApproach": 110,
+                "runwayApproachStartDistance": 3
+            }
+        ]
+    },
+
+    "KCIA": {
+        "airportName": "KCIA",
+        "towerPosition": [2406.98193359375, 0.5270114183425903, -410.0330505371094],
+        "runways": [
+            {
+                "runwayMark": "RW18",
+                "runwayStartPoint": [2402.98193359375, 0.6270114183425903, -419.0330505371094],
+                "runwayEndPoint": [2402.977294921875, 0.6240718960762024, -144.29623413085938],
+                "runwaySurface": "normal",
+                "runwayApproach": 180,
+                "runwayApproachStartDistance": 12
+            },
+            {
+                "runwayMark": "RW36",
+                "runwayStartPoint": [2402.977294921875, 0.6240718960762024, -144.29623413085938],
+                "runwayEndPoint": [2402.98193359375, 0.6270114183425903, -419.0330505371094],
+                "runwaySurface": "normal",
+                "runwayApproach": 360,
+                "runwayApproachStartDistance": 12
+            },
+            {
+                "runwayMark": "RW27",
+                "runwayStartPoint": [2451.084228515625, 0.6308971643447876, -230.5258026123047],
+                "runwayEndPoint": [2176.087646484375, 0.6258289813995361, -230.4810333251953],
+                "runwaySurface": "normal",
+                "runwayApproach": 270,
+                "runwayApproachStartDistance": 12
+            },
+            {
+                "runwayMark": "RW09",
+                "runwayStartPoint": [2176.087646484375, 0.6258289813995361, -230.4810333251953],
+                "runwayEndPoint": [2451.084228515625, 0.6308971643447876, -230.5258026123047],
+                "runwaySurface": "normal",
+                "runwayApproach": 90,
+                "runwayApproachStartDistance": 12
+            }
+        ]
+    }
+}
