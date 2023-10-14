@@ -115,8 +115,8 @@
     },
 
     "KCIA": {
-        "airportName": "KCIA",
-        "towerPosition": [2406.98193359375, 0.5270114183425903, -410.0330505371094],
+        "airportName": "Clarence International Airport",
+        "towerPosition": [2342.2724609375, 0.626758873462677, -308.6489562988281],
         "runways": [
             {
                 "runwayMark": "RW18",
@@ -149,6 +149,75 @@
                 "runwaySurface": "normal",
                 "runwayApproach": 90,
                 "runwayApproachStartDistance": 12
+            }
+        ]
+    },
+
+    "KGA": {
+        "airportName": "Gaston Airfield",
+        "towerPosition": [2336.32568359375, 0.6145848035812378, -1048.0511474609375],
+        "runways": [
+            {
+                "runwayMark": "RW18",
+                "runwayStartPoint": [2346.60498046875, 0.6139525771141052, -1067.5552978515625],
+                "runwayEndPoint": [2346.69384765625, 0.6125560998916626, -1012.8929443359375],
+                "runwaySurface": "grass",
+                "runwayApproach": 180,
+                "runwayApproachStartDistance": 2
+            },
+            {
+                "runwayMark": "RW36",
+                "runwayStartPoint": [2346.69384765625, 0.6125560998916626, -1012.8929443359375],
+                "runwayEndPoint": [2346.60498046875, 0.6139525771141052, -1067.5552978515625],
+                "runwaySurface": "grass",
+                "runwayApproach": 360,
+                "runwayApproachStartDistance": 2
+            }
+        ]
+    },
+
+    "KMEA": {
+        "airportName": "Millsho Estate",
+        "towerPosition": [975.2938842773438, 0.6697491407394409, -1467.42626953125],
+        "runways": [
+            {
+                "runwayMark": "RW07",
+                "runwayStartPoint": [960.5159301757812, 0.66999351978302, -1471.2603759765625],
+                "runwayEndPoint": [1031.7603759765625, 0.6692256927490234, -1490.4705810546875],
+                "runwaySurface": "normal",
+                "runwayApproach": 75,
+                "runwayApproachStartDistance": 4
+            },
+            {
+                "runwayMark": "RW25",
+                "runwayStartPoint": [1031.7603759765625, 0.6692256927490234, -1490.4705810546875],
+                "runwayEndPoint": [960.5159301757812, 0.66999351978302, -1471.2603759765625],
+                "runwaySurface": "normal",
+                "runwayApproach": 255,
+                "runwayApproachStartDistance": 4
+            }
+        ]
+    },
+
+    "KNET": {
+        "airportName": "New Englandtown Regional Airport",
+        "towerPosition": [385.7369384765625, 0.5972104668617249, -4289.15576171875],
+        "runways": [
+            {
+                "runwayMark": "RW24",
+                "runwayStartPoint": [466.66241455078125, 0.6005999445915222, -4382.3017578125],
+                "runwayEndPoint": [268.6070861816406, 0.5988546013832092, -4258.52490234375],
+                "runwaySurface": "normal",
+                "runwayApproach": 239,
+                "runwayApproachStartDistance": 8
+            },
+            {
+                "runwayMark": "RW06",
+                "runwayStartPoint": [268.6070861816406, 0.5988546013832092, -4258.52490234375],
+                "runwayEndPoint": [466.66241455078125, 0.6005999445915222, -4382.3017578125],
+                "runwaySurface": "normal",
+                "runwayApproach": 58,
+                "runwayApproachStartDistance": 8
             }
         ]
     }
